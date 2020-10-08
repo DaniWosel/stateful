@@ -21,11 +21,33 @@ class TareaState extends State<Tarea>{
   TareaState(ts){
     this.tst=ts;
   }
+  click(){
+    print("click");
+    setState(
+        (){
+          tst['done'] = !tst['done'];
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(left:20),
-        child: Text(tst["nombre"].toString())
+        child:  Row(
+          children: [
+            if(tst['done'])
+              Icon(Icons.done)
+            else
+              Icon(Icons.clear)
+            ,
+            FlatButton(
+              onPressed: click,
+              child: Text("  "+tst['nombre'])
+            )
+          ]
+        )
+        //Text(tst["nombre"].toString())
     );
   }
 }
