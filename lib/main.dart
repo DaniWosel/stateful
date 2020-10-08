@@ -55,8 +55,19 @@ class TareaState extends State<Tarea>{
 //-----------------------------------------
 
 class MyApp extends StatelessWidget {
+  var tar;
 
-  var tareaejemplo = { "nombre": "Hola soy una tarea", "done": true};
+  var tareaejemplo = [ {"nombre": "Hola soy una tarea", "done": true},
+    {"nombre": "Hola soy una tarea 2", "done": true},
+    {"nombre": "Hola soy una tarea 3", "done": true},
+    {"nombre": "Hola soy una tarea 4", "done": true},
+    {"nombre": "Hola soy una tarea 5", "done": true},
+    {"nombre": "Hola soy una tarea 6", "done": true},
+    {"nombre": "Hola soy una tarea 7", "done": true},
+    {"nombre": "Hola soy una tarea 8", "done": true},
+    {"nombre": "Hola soy una tarea 9", "done": true},
+    {"nombre": "Hola soy una tarea 10", "done": true}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,15 +77,15 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Welcome to Flutter'),
         ),
-        body: Center(
-          child: Container(
-              padding: EdgeInsets.all(20),
+        body: ListView(
+          children: [for(tar in tareaejemplo) Container(
+              padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
               child: Row(
                 children: [
-                  Tarea(tareaejemplo), //!!!---------
+                  Tarea(tar), //!!!---------
                   /*
                   if(tarea['done'])
                     Icon(Icons.done)
@@ -87,6 +98,7 @@ class MyApp extends StatelessWidget {
                 ]
             )
           )
+        ]
         ),
       ),
     );
