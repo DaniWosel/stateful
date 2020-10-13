@@ -33,18 +33,23 @@ class TareaState extends State<Tarea>{
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left:20),
+        padding: EdgeInsets.only(left:0),
         child:  Row(
           children: [
             if(tst['done'])
-              Icon(Icons.done)
+          FlatButton(
+           onPressed: click,
+           child:Icon(Icons.done))
             else
-              Icon(Icons.clear)
+          FlatButton(
+           onPressed: click,
+           child:Icon(Icons.clear))
             ,
-            FlatButton(
-              onPressed: click,
-              child: Text("  "+tst['nombre'])
-            )
+            if(tst['done'])
+                 Text("  "+tst['nombre'].toUpperCase())
+            else
+                 Text("  "+tst['nombre'])
+
           ]
         )
         //Text(tst["nombre"].toString())
@@ -86,15 +91,6 @@ class MyApp extends StatelessWidget {
               child: Row(
                 children: [
                   Tarea(tar), //!!!---------
-                  /*
-                  if(tarea['done'])
-                    Icon(Icons.done)
-                  else
-                    Icon(Icons.clear)
-                  ,
-                  Text(tarea['nombre'])
-                  */
-
                 ]
             )
           )
