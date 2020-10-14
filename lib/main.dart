@@ -52,7 +52,6 @@ class TareaState extends State<Tarea>{
 
           ]
         )
-        //Text(tst["nombre"].toString())
     );
   }
 }
@@ -88,11 +87,7 @@ class MyApp extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Row(
-                children: [
-                  Tarea(tar), //!!!---------
-                ]
-            )
+              child: Tarea(tar) //!!!---------
           )
         ]
         ),
